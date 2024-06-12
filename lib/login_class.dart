@@ -25,8 +25,18 @@ class _LoginClassState extends State<LoginClass> {
       Fluttertoast.showToast(
           msg: "Enter Your Password", toastLength: Toast.LENGTH_LONG);
     } else {
-      Fluttertoast.showToast(
-          msg: "Login Successfull", toastLength: Toast.LENGTH_LONG);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text("This is Snackbar"),
+          action: SnackBarAction(
+            label: "Undo",
+            onPressed: () {
+              Fluttertoast.showToast(
+                  msg: "Login Successfull", toastLength: Toast.LENGTH_LONG);
+            },
+          ),
+        ),
+      );
       textEmailController.clear();
       textPasswordController.clear();
       Navigator.push(
