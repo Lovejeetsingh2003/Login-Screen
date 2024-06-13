@@ -37,12 +37,13 @@ class _LoginClassState extends State<LoginClass> {
           ),
         ),
       );
-      textEmailController.clear();
-      textPasswordController.clear();
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => HomePage(
+            email: textEmailController.text.toString(),
+            password: textPasswordController.text.toString(),
+          ),
         ),
       );
     }

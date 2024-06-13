@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:login_app/next_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  String email;
+  String password;
+  HomePage({super.key, required this.email, required this.password});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(email, password);
 }
 
 class _HomePageState extends State<HomePage> {
+  String email;
+  String password;
+  _HomePageState(this.email, this.password);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +30,25 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  email,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  password,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
